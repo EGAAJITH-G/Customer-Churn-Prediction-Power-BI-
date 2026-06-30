@@ -1,0 +1,103 @@
+.container {
+  padding: 40px;
+  margin-left: 280px;
+  max-width: 1200px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.chartTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--heading);
+  margin-bottom: 2px;
+}
+
+.chartDesc {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.chartWrapper {
+  width: 100%;
+}
+
+.error {
+  margin-left: 280px;
+  padding: 40px;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Cohort Heatmap Styles */
+.heatmapContainer {
+  margin-top: 8px;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.heatmapTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 4px;
+  min-width: 600px;
+}
+
+.heatmapHeaderCell {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  padding: 8px;
+  text-align: center;
+}
+
+.heatmapRow {
+  height: 38px;
+}
+
+.heatmapLabelCell {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--heading);
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  text-align: left;
+}
+
+.heatmapSizeCell {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-light);
+  padding: 8px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.heatmapValueCell {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 8px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.heatmapValueCell:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.heatmapEmptyCell {
+  background: rgba(148, 163, 184, 0.05);
+  border-radius: 8px;
+  border: 1px dashed rgba(148, 163, 184, 0.15);
+}

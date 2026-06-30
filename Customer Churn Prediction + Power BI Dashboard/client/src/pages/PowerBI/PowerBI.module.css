@@ -1,0 +1,516 @@
+.container {
+  padding: 24px 40px 40px 320px; /* leaves room for Sidebar (280px) + gap */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Power BI Ribbon Header */
+.powerBiHeader {
+  height: 48px;
+  background: #252423; /* Power BI utility gray */
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px 16px 0 16px;
+  border: 1px solid #323130;
+  box-shadow: var(--shadow-sm);
+}
+
+.pbiLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pbiIconWrapper {
+  width: 18px;
+  height: 18px;
+  background: #F2C811; /* Power BI Yellow */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pbiIcon {
+  color: #111111;
+}
+
+.pbiTitle {
+  color: #c8c6c4;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.pbiMenuTabs {
+  display: flex;
+  gap: 12px;
+}
+
+.menuTab {
+  background: transparent;
+  border: none;
+  color: #a19f9d;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px 6px 10px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.menuTab:hover {
+  color: #ffffff;
+  background: transparent;
+}
+
+.activeTab {
+  color: #ffffff !important;
+  border-bottom: 2px solid #F2C811 !important; /* Yellow active indicator */
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Canvas Container */
+.canvasContainer {
+  flex-grow: 1;
+  display: flex;
+  background: #F3F2F1; /* Power BI Canvas Light Gray */
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  min-height: 520px;
+}
+
+/* Slicer Sidebar */
+.slicerSidebar {
+  width: 200px;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #323130;
+  border-bottom: 1.5px solid #F2C811;
+  padding-bottom: 8px;
+}
+
+.sidebarHeader h3 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.slicerBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slicerLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #605e5c;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filterBtn {
+  text-align: left;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: #faf9f8;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #323130;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filterBtn:hover {
+  background: #f3f2f1;
+  border-color: #a19f9d;
+}
+
+.filterBtnActive {
+  background: rgba(242, 200, 17, 0.1) !important;
+  border-color: #F2C811 !important;
+  color: #111111 !important;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px #F2C811;
+}
+
+.resetBtn {
+  background: #faf9f8;
+  border: 1px solid #d2d0ce;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #323130;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: auto;
+}
+
+.resetBtn:hover {
+  background: #f3f2f1;
+  border-color: #a19f9d;
+}
+
+.slicerFooter {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 12px;
+}
+
+.refreshBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #F2C811; /* Power BI Desktop Accent */
+  color: #111111;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refreshBtn:hover {
+  background: #e2ba0f;
+  box-shadow: var(--shadow-sm);
+}
+
+.refreshBtn:disabled {
+  background: #f3f2f1;
+  color: #a19f9d;
+  cursor: not-allowed;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Report Canvas */
+.reportCanvas {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+/* KPI Card Row */
+.kpiRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.kpiCard {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 14px 16px;
+  border-radius: 8px;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.kpiLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: #605e5c;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.kpiValue {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.5px;
+}
+
+.kpiFootnote {
+  font-size: 10px;
+  color: #a19f9d;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.kpiIconBlue { color: #2563EB; }
+.kpiIconRed { color: #EF4444; }
+.kpiIconOrange { color: #F59E0B; }
+.kpiIconGreen { color: #10B981; }
+
+/* Charts Grid */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.chartCard {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chartTitle {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #323130;
+  margin: 0;
+  border-left: 3.5px solid #F2C811;
+  padding-left: 8px;
+}
+
+/* Custom Pie/Donut Legend */
+.pieLegend {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 10px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.legendColorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.legendDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.legendName {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #323130;
+}
+
+.legendVal {
+  font-size: 10px;
+  color: #797775;
+  font-weight: 500;
+}
+
+/* Power BI Embedded Footer */
+.powerBiFooter {
+  height: 32px;
+  background: #eaeaea; /* Light BI tab gray */
+  border-radius: 0 0 12px 12px;
+  border: 1px solid #d2d0ce;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.pbiFooterLeft {
+  display: flex;
+  height: 100%;
+}
+
+.pbiTabLabel, .pbiTabLabelActive {
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  height: 100%;
+  border-right: 1px solid #d2d0ce;
+}
+
+.pbiTabLabel {
+  color: #605e5c;
+  background: #eaeaea;
+}
+
+.pbiTabLabel:hover {
+  background: #f3f2f1;
+  color: #323130;
+}
+
+.pbiTabLabelActive {
+  color: #111111;
+  background: #ffffff; /* Active white tab */
+  border-top: 2.5px solid #F2C811; /* Yellow active line */
+}
+
+.pbiFooterRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #605e5c;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.pbiDivider {
+  color: #d2d0ce;
+}
+
+/* Tab Container & Dropdowns */
+.tabContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #d2d0ce;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  padding: 6px 0;
+  width: 220px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+
+.dropdownItem {
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #323130;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  transition: all 0.15s ease;
+}
+
+.dropdownItem:hover {
+  background: #f3f2f1;
+  color: #111111;
+}
+
+.dropdownSectionTitle {
+  font-size: 9px;
+  font-weight: 800;
+  color: #a19f9d;
+  text-transform: uppercase;
+  padding: 6px 16px 4px 16px;
+  letter-spacing: 0.5px;
+}
+
+.themeActive {
+  background: rgba(242, 200, 17, 0.08) !important;
+  color: #e2ba0f !important;
+  font-weight: 700;
+}
+
+/* Modals */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.modalCard {
+  width: 90%;
+  max-width: 480px;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

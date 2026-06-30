@@ -1,0 +1,416 @@
+.navbar {
+  height: 80px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin-left: 280px; /* leaves room for Sidebar */
+  position: relative;
+  z-index: 90;
+}
+
+.titleSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.actionSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dateBadgeWrapper, .bellWrapper {
+  position: relative;
+  display: flex;
+}
+
+.dateBadge {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  color: var(--text);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dateBadge:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.iconContainer {
+  width: 40px;
+  height: 40px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  cursor: pointer;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.iconContainer:hover {
+  background: var(--bg-tertiary);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 11px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--danger);
+  border-radius: 50%;
+  border: 1.5px solid var(--bg-secondary);
+}
+
+.secBadge {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: var(--success);
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-size: 11.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Custom Interactive Calendar Dropdown */
+.calendarDropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 280px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.calendarNavBtn {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calendarNavBtn:hover {
+  background: var(--bg-secondary);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.calendarMonthYear {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+.weekdaysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.weekdayLabel {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.daysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 4px;
+  column-gap: 4px;
+}
+
+.dayCell {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.dayCell:hover {
+  background: var(--bg-secondary);
+}
+
+.dayCellOutside {
+  color: var(--text-light);
+  opacity: 0.4;
+}
+
+.dayCellSelected {
+  background: var(--primary) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.dayCellToday {
+  border: 1.5px solid var(--primary);
+  font-weight: 700;
+}
+
+/* Custom Glassmorphic Notifications Dropdown */
+.notificationsDropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 350px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.notificationsHeader {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notifTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--heading);
+  margin: 0;
+}
+
+.notifSubtitle {
+  font-size: 11px;
+  color: var(--text-light);
+  font-weight: 500;
+  display: block;
+  margin-top: 2px;
+}
+
+.notifActions {
+  display: flex;
+  gap: 10px;
+}
+
+.textLink {
+  font-size: 11px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.textLinkDanger {
+  font-size: 11px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  padding: 0;
+}
+
+.textLink:hover, .textLinkDanger:hover {
+  text-decoration: underline;
+}
+
+.notificationsList {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.notifItem {
+  padding: 14px 16px;
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  text-align: left;
+}
+
+.notifItem:last-child {
+  border-bottom: none;
+}
+
+.notifItem:hover {
+  background: var(--bg-secondary);
+}
+
+.notifUnread {
+  background: rgba(37, 99, 235, 0.02);
+}
+
+.notifUnread .notifHeading {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.notifIconWrapper {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notifContent {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 14px;
+}
+
+.notifRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.notifHeading {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.notifTime {
+  font-size: 10px;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.notifBody {
+  font-size: 11px;
+  color: var(--text-light);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.deleteNotifBtn {
+  position: absolute;
+  right: 12px;
+  top: 14px;
+  opacity: 0;
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.notifItem:hover .deleteNotifBtn {
+  opacity: 1;
+}
+
+.deleteNotifBtn:hover {
+  color: var(--danger);
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.emptyState {
+  padding: 32px 16px;
+  text-align: center;
+}
+
+.emptyText {
+  font-size: 12px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+.iconDanger {
+  color: var(--danger);
+}
+
+.iconSuccess {
+  color: var(--success);
+}
+
+.iconWarning {
+  color: var(--warning);
+}
+
+.iconInfo {
+  color: var(--primary);
+}
