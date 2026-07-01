@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChurnPredict AI - Application Walkthrough</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Aurora AI Light Palette */
+      --bg-primary: #f4f8fc;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #eef4fa;
+      --primary: #2563eb;
+      --primary-light: #60a5fa;
+      --primary-glow: rgba(37, 99, 235, 0.08);
+      --secondary: #7c3aed;
+      --secondary-light: #a78bfa;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --heading: #0f172a;
+      --text: #334155;
+      --text-light: #64748b;
+      --border: #e2e8f0;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(255, 255, 255, 0.6);
+      --shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    /* Grid pattern background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(var(--bg-tertiary) 25%, transparent 26%),
+        radial-gradient(var(--bg-tertiary) 25%, transparent 26%);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      margin: 0 auto 15px auto;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--text-light);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* INTRO SECTION */
+    .intro-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .intro-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .intro-block {
+      padding: 16px;
+      border-radius: var(--radius-sm);
+    }
+
+    .intro-block.english {
+      border-left: 4px solid var(--primary);
+      background: rgba(37, 99, 235, 0.02);
+    }
+
+    .intro-block.tamil {
+      border-left: 4px solid var(--secondary);
+      background: rgba(124, 58, 237, 0.02);
+    }
+
+    .intro-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--heading);
+    }
+
+    .intro-title.english { color: var(--primary); }
+    .intro-title.tamil { color: var(--secondary); }
+
+    /* SECTION CARD */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-lg);
+      padding: 35px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .section-title-wrapper {
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-icon {
+      font-size: 24px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--heading);
+    }
+
+    /* MEDIA CONTAINER */
+    .media-container {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background-color: #000;
+    }
+
+    .demo-media {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* STEP CARDS */
+    .step-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .step-badge {
+      background: var(--primary-glow);
+      border: 1px solid rgba(37, 99, 235, 0.15);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 12px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .step-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .step-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      font-size: 13.5px;
+    }
+
+    @media (max-width: 768px) {
+      .step-details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .detail-column {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .detail-lang {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-light);
+    }
+
+    .detail-column.en {
+      border-left: 2px solid var(--primary-light);
+      padding-left: 12px;
+    }
+
+    .detail-column.ta {
+      border-left: 2px solid var(--secondary-light);
+      padding-left: 12px;
+    }
+
+    .credential-box {
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-family: monospace;
+      font-size: 12.5px;
+      margin-top: 8px;
+    }
+
+    .screenshot-wrapper {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-top: 8px;
+    }
+
+    .screenshot-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    ul {
+      margin-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand-logo">C</div>
+      <h1>ChurnPredict AI <span>Walkthrough</span></h1>
+      <div class="subtitle">இணைய தளம் எவ்வாறு வேலை செய்கிறது?</div>
+    </header>
+
+    <!-- INTRO CARD -->
+    <section class="intro-card">
+      <div class="intro-block english">
+        <div class="intro-title english">English Description</div>
+        <p style="font-size: 13.5px;">
+          This walkthrough guide displays the full customer churn prediction process. You can see how the backend Node.js server coordinates with the Python FastAPI model to evaluate customer metadata.
+        </p>
+      </div>
+      <div class="intro-block tamil">
+        <div class="intro-title tamil">தமிழ் விளக்கம்</div>
+        <p style="font-size: 13px;">
+          இந்த வழிகாட்டித் தளம் வாடிக்கையாளர் வெளியேற்றக் கணிப்பு எவ்வாறு செயல்படுகிறது என்பதைப் படங்களுடன் விளக்குகிறது. பின்னணி சர்வர் எவ்வாறு கணிப்புகளைச் செய்கிறது என்பதை இங்கே காணலாம்.
+        </p>
+      </div>
+    </section>
+
+    <!-- VIDEO RECORDING SECTION -->
+    <section class="section-card">
+      <div class="section-title-wrapper">
+        <span class="section-icon">🎬</span>
+        <h2 class="section-title">Video Recording / செயல்முறை வீடியோ காட்சி</h2>
+      </div>
+      <p style="font-size: 13.5px; margin-bottom: 10px;">
+        Watch the recorded preview of the subagent logging in and running a churn simulation in the AI Sandbox below:
+      </p>
+      <div class="media-container">
+        <img class="demo-media" src="file:///C:/Users/DURGAI/.gemini/antigravity-ide/brain/d50b294a-a1d7-43f9-b87c-da0b8eac966f/churn_prediction_demo_1782901277746.webp" alt="Application Simulation Demo Video">
+      </div>
+    </section>
+
+    <!-- STEP-BY-STEP SECTION -->
+    <section class="section-card" style="gap: 24px;">
+      <div class="section-title-wrapper">
+        <span class="section-icon">📸</span>
+        <h2 class="section-title">Step-by-Step Walkthrough / படிப்படியான விளக்கம்</h2>
+      </div>
+
+      <!-- STEP 1 -->
+      <div class="step-card">
+        <div class="step-header">
+          <h3 class="step-title">1. The Login Portal / லாகின் பக்கம்</h3>
+          <span class="step-badge">Step 1</span>
+        </div>
+        <div class="step-details-grid">
+          <div class="detail-column en">
+            <span class="detail-lang">English</span>
+            <p>Access the portal in your browser at <code>http://localhost:5173</code>. Enter the administrator credentials to view the secure dashboard.</p>
+            <div class="credential-box">
+              <strong>Email:</strong> analyst@churnpredict.ai<br>
+              <strong>Password:</strong> password123
+            </div>
+          </div>
+          <div class="detail-column ta">
+            <span class="detail-lang">தமிழ்</span>
+            <p>வலைப்பக்கத்தை <code>http://localhost:5173</code> இல் திறந்து, மின்னஞ்சல் மற்றும் கடவுச்சொல்லைக் கொடுத்து உள்நுழையவும்.</p>
+            <div class="credential-box">
+              <strong>மின்னஞ்சல்:</strong> analyst@churnpredict.ai<br>
+              <strong>கடவுச்சொல்:</strong> password123
+            </div>
+          </div>
+        </div>
+        <div class="screenshot-wrapper">
+          <img class="screenshot-img" src="file:///C:/Users/DURGAI/.gemini/antigravity-ide/brain/d50b294a-a1d7-43f9-b87c-da0b8eac966f/login_page_status_1782901344590.png" alt="Login Page Snapshot">
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step-card">
+        <div class="step-header">
+          <h3 class="step-title">2. Enter Parameters / விவரங்களை உள்ளிடுதல்</h3>
+          <span class="step-badge">Step 2</span>
+        </div>
+        <div class="step-details-grid">
+          <div class="detail-column en">
+            <span class="detail-lang">English</span>
+            <p>Navigate to the <strong>AI Predict</strong> (AI Sandbox) page. Adjust the customer's attributes like contract duration, billing methods, and services.</p>
+          </div>
+          <div class="detail-column ta">
+            <span class="detail-lang">தமிழ்</span>
+            <p>இடதுபுற மெனுவில் உள்ள **AI Predict** பக்கத்திற்குச் செல்லவும். வாடிக்கையாளரின் ஒப்பந்தக் காலம் மற்றும் இதர விவரங்களை உள்ளிடவும்.</p>
+          </div>
+        </div>
+        <div class="screenshot-wrapper">
+          <img class="screenshot-img" src="file:///C:/Users/DURGAI/.gemini/antigravity-ide/brain/d50b294a-a1d7-43f9-b87c-da0b8eac966f/sandbox_form_state_1782901436931.png" alt="AI Sandbox Parameters Snapshot">
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step-card">
+        <div class="step-header">
+          <h3 class="step-title">3. Churn Evaluation / முடிவுகளைக் காணுதல்</h3>
+          <span class="step-badge">Step 3</span>
+        </div>
+        <div class="step-details-grid">
+          <div class="detail-column en">
+            <span class="detail-lang">English</span>
+            <p>Click the <strong>Simulate Churn Risk</strong> button. The Python Machine Learning model instantly returns:</p>
+            <ul>
+              <li><strong>Churn Probability %</strong> (e.g. 85% risk)</li>
+              <li><strong>Risk Drivers</strong> (e.g. month-to-month contracts)</li>
+              <li><strong>Recommendations</strong> for customer retention</li>
+            </ul>
+          </div>
+          <div class="detail-column ta">
+            <span class="detail-lang">தமிழ்</span>
+            <p>**Simulate Churn Risk** பொத்தானை அழுத்தியவுடன், Python ML மாடல் வாடிக்கையாளரின் வெளியேறும் அபாயத்தைக் கணக்கிட்டுக் காட்டும்:</p>
+            <ul>
+              <li><strong>வெளியேற்ற சதவீதம் %</strong> (எ.கா. 85% அபாயம்)</li>
+              <li><strong>முக்கியக் காரணங்கள்</strong> (எ.கா. மாதாந்திர ஒப்பந்தங்கள்)</li>
+              <li>வாடிக்கையாளரைத் தக்கவைக்க **ஆலோசனைகள்**</li>
+            </ul>
+          </div>
+        </div>
+        <div class="screenshot-wrapper">
+          <img class="screenshot-img" src="file:///C:/Users/DURGAI/.gemini/antigravity-ide/brain/d50b294a-a1d7-43f9-b87c-da0b8eac966f/prediction_results_1782901466179.png" alt="Churn Prediction Result Snapshot">
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

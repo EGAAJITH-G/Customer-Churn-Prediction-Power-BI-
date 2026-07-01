@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChurnPredict AI - Complete Full-Width System Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Aurora AI Light Theme Palette */
+      --bg-primary: #f1f5f9;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #f8fafc;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-border: rgba(255, 255, 255, 0.8);
+      
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-glow: rgba(37, 99, 235, 0.05);
+      --secondary: #7c3aed;
+      --secondary-light: #8b5cf6;
+      --accent: #0ea5e9;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      
+      --heading: #0f172a;
+      --text: #334155;
+      --text-light: #64748b;
+      
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.03), 0 20px 40px -5px rgba(15, 23, 42, 0.05);
+      --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.02);
+      --shadow-lg: 0 25px 60px -15px rgba(15, 23, 42, 0.08);
+      
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      
+      --header-bg: linear-gradient(135deg, #1e3a8a 0%, #1e1b4b 100%);
+    }
+
+    /* Dark Mode Theme Palette Override */
+    body.dark-mode {
+      --bg-primary: #090d16;
+      --bg-secondary: #111827;
+      --bg-tertiary: #1f2937;
+      --card-bg: rgba(17, 24, 39, 0.85);
+      --card-border: rgba(255, 255, 255, 0.05);
+      
+      --heading: #f8fafc;
+      --text: #cbd5e1;
+      --text-light: #94a3b8;
+      
+      --border: #1f2937;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 25px 60px rgba(0, 0, 0, 0.4);
+      --header-bg: linear-gradient(135deg, #0f172a 0%, #030712 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Full Width Container */
+    .container {
+      width: 100%;
+      max-width: 98%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* HEADER BANNER */
+    header {
+      background: var(--header-bg);
+      padding: 50px 40px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(96, 165, 250, 0.15) 0%, rgba(255, 255, 255, 0) 60%);
+      pointer-events: none;
+    }
+
+    .theme-toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .brand-badge {
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #93c5fd;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+      line-height: 1.1;
+    }
+
+    header h1 span {
+      background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      font-size: 15px;
+      color: #94a3b8;
+      max-width: 700px;
+    }
+
+    /* CARD DESIGN */
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .section-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .section-icon {
+      font-size: 32px;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--heading);
+      letter-spacing: -0.5px;
+    }
+
+    /* TIMELINE FLOW - FULL WIDTH */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary) 0%, var(--secondary) 100%);
+      opacity: 0.3;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 20px;
+      position: relative;
+    }
+
+    .timeline-node {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      border-radius: 50%;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      z-index: 2;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    .timeline-content {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* BILINGUAL GRID */
+    .bilingual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .bilingual-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .lang-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .lang-label {
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-light);
+      margin-bottom: 2px;
+    }
+
+    .lang-column.en {
+      border-left: 3px solid var(--primary-light);
+      padding-left: 16px;
+    }
+
+    .lang-column.ta {
+      border-left: 3px solid var(--secondary-light);
+      padding-left: 16px;
+    }
+
+    .lang-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    /* MEDIA EMBED */
+    .media-container {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background-color: #000000;
+    }
+
+    .demo-media {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* CODE CONTAINER & COPY SYSTEM */
+    .code-container {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    .code-header {
+      background: #1e293b;
+      color: #94a3b8;
+      font-family: 'Outfit', sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .code-block {
+      background: #0f172a;
+      color: #38bdf8;
+      font-family: monospace;
+      font-size: 12.5px;
+      padding: 20px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      overflow-x: auto;
+      margin: 0;
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      transition: all 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+
+    .code-span {
+      font-family: monospace;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: var(--danger);
+    }
+
+    /* DIRECTORY TREE */
+    .tree-wrapper {
+      background: #0f172a;
+      color: #cbd5e1;
+      font-family: monospace;
+      font-size: 13px;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      overflow-x: auto;
+    }
+
+    .tree-folder { color: #f59e0b; font-weight: bold; }
+    .tree-file { color: #38bdf8; }
+    .tree-comment { color: #64748b; font-style: italic; margin-left: 15px; }
+
+    /* FULL WIDTH TABLES */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    th {
+      background: var(--bg-tertiary);
+      color: var(--heading);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text);
+      transition: background-color 0.3s ease;
+    }
+
+    tr:hover td {
+      background-color: var(--primary-glow);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* BADGES */
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-get { background: rgba(16, 185, 129, 0.08); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.15); }
+    .badge-post { background: var(--primary-glow); color: var(--primary); border: 1px solid rgba(37, 99, 235, 0.15); }
+    .badge-error { background: rgba(239, 68, 68, 0.08); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.15); }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <button class="theme-toggle-btn" id="themeBtn" onclick="toggleTheme()">☀️ Light Mode</button>
+      <div class="brand-badge">Full-Stack Lifecycle</div>
+      <h1>ChurnPredict AI — <span>Full-Width System Blueprint</span></h1>
+      <p>A comprehensive end-to-end documentation portal explaining compilation, execution, database schema configurations, and analytical metrics.</p>
+    </header>
+
+    <!-- SECTION 1: WORKFLOW TIMELINE -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">🏁</span>
+        <h2 class="section-title">End-to-End System Workflow / தொடக்கம் முதல் முடிவு வரை</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- STEP 1 -->
+        <div class="timeline-item">
+          <div class="timeline-node">1</div>
+          <div class="timeline-content">
+            <h3 class="lang-title" style="color: var(--primary);">1. Prerequisites Setup / கணினித் தேவைகள்</h3>
+            <div class="bilingual-grid">
+              <div class="lang-column en">
+                <span class="lang-label">English Explanation</span>
+                <p>Install Node.js (v18+) and Python (v3.12) compilers. A local MongoDB community service or cloud MongoDB Atlas cluster must be configured. Ensure Python is added to the system PATH environment variable.</p>
+              </div>
+              <div class="lang-column ta">
+                <span class="lang-label">தமிழ் விளக்கம்</span>
+                <p>கணினியில் Node.js (v18+) மற்றும் Python (v3.12) நிறுவப்பட வேண்டும். உள்ளூர் கணினியில் MongoDB சேவையைத் தொடங்கவும் அல்லது MongoDB Atlas கிளவுட் இணைப்பைத் தயார் செய்து கொள்ளவும்.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="timeline-item">
+          <div class="timeline-node">2</div>
+          <div class="timeline-content">
+            <h3 class="lang-title" style="color: var(--secondary);">2. Configure Environment Keys / சர்வர் அமைப்புகள்</h3>
+            <div class="bilingual-grid">
+              <div class="lang-column en">
+                <span class="lang-label">English Explanation</span>
+                <p>Configure the connection parameters inside <code>server/.env</code>. The backend Node.js server automatically handles cloud database connection failures and diverts queries to the local offline JSON fallback database.</p>
+              </div>
+              <div class="lang-column ta">
+                <span class="lang-label">தமிழ் விளக்கம்</span>
+                <p><code>server/.env</code> கோப்பில் தரவுத்தள இணைப்பை அமைக்கவும். ஆன்லைன் கிளவுட் சர்வர் துண்டிக்கப்பட்டால், Node.js சர்வர் தானாகவே லோக்கல் கோப்பில் (`local_db.json`) இணைந்து கொள்ளும்.</p>
+              </div>
+            </div>
+            <div class="code-container">
+              <div class="code-header">
+                <span>server/.env</span>
+                <button class="copy-btn" onclick="copyCode(this, 'PORT=5000\nMONGO_URI=mongodb+srv://Ajith_db:Ajith%402004@ajithdev.0qvlvp8.mongodb.net/churn_data?appName=AJITHDEV\nJWT_SECRET=super_secure_random_key_for_production_auth_98765\nML_SERVICE_URL=http://localhost:8000/predict')">Copy</button>
+              </div>
+              <pre class="code-block">PORT=5000
+MONGO_URI=mongodb+srv://Ajith_db:Ajith%402004@ajithdev.0qvlvp8.mongodb.net/churn_data?appName=AJITHDEV
+JWT_SECRET=super_secure_random_key_for_production_auth_98765
+ML_SERVICE_URL=http://localhost:8000/predict</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="timeline-item">
+          <div class="timeline-node">3</div>
+          <div class="timeline-content">
+            <h3 class="lang-title" style="color: var(--accent);">3. Start the Platform Servers / கணினியில் இயக்குதல்</h3>
+            <div class="bilingual-grid">
+              <div class="lang-column en">
+                <span class="lang-label">English Explanation</span>
+                <p>Launch three separate terminals to start each component of the ecosystem. Make sure Python 3.12 environment is selected to avoid Scikit-Learn compiler issues.</p>
+              </div>
+              <div class="lang-column ta">
+                <span class="lang-label">தமிழ் விளக்கம்</span>
+                <p>மூன்று தனித்தனி டெர்மினல்களைத் திறந்து, முதலில் Node.js பின்னணி சர்வர், பின்னர் Python ML API சர்வர் மற்றும் React UI முகப்புத் பக்கத்தைத் தொடங்கவும்.</p>
+              </div>
+            </div>
+
+            <div class="code-container">
+              <div class="code-header">
+                <span>Terminal 1: Node.js Server (Port 5000)</span>
+                <button class="copy-btn" onclick="copyCode(this, 'cd server\nnpm install\nnpm run dev')">Copy</button>
+              </div>
+              <pre class="code-block">cd server
+npm install
+npm run dev</pre>
+            </div>
+
+            <div class="code-container">
+              <div class="code-header">
+                <span>Terminal 2: Python FastAPI (Port 8000)</span>
+                <button class="copy-btn" onclick="copyCode(this, 'cd ml-service\npy -3.12 -m pip install -r requirements.txt\npy -3.12 train.py\npy -3.12 app.py')">Copy</button>
+              </div>
+              <pre class="code-block">cd ml-service
+py -3.12 -m pip install -r requirements.txt
+py -3.12 train.py
+py -3.12 app.py</pre>
+            </div>
+
+            <div class="code-container">
+              <div class="code-header">
+                <span>Terminal 3: React Vite Client (Port 5173)</span>
+                <button class="copy-btn" onclick="copyCode(this, 'cd client\nnpm install\nnpm run dev')">Copy</button>
+              </div>
+              <pre class="code-block">cd client
+npm install
+npm run dev</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="timeline-item">
+          <div class="timeline-node">4</div>
+          <div class="timeline-content">
+            <h3 class="lang-title" style="color: var(--success);">4. Database Seeding & Setup / தரவுப் பதிவேற்றம்</h3>
+            <div class="bilingual-grid">
+              <div class="lang-column en">
+                <span class="lang-label">English Explanation</span>
+                <p>Run the seeder tool to load the default analyst logins and import the first 150 customer profiles into MongoDB (or your fallback database).</p>
+              </div>
+              <div class="lang-column ta">
+                <span class="lang-label">தமிழ் விளக்கம்</span>
+                <p>தரவுத்தளத்தில் அட்மின் லாகின் கணக்கு மற்றும் 150 வாடிக்கையாளர் விவரங்களை தானாகவே ஏற்றி வைக்க சீடிங் கட்டளையை இயக்கவும்.</p>
+              </div>
+            </div>
+            <div class="code-container">
+              <div class="code-header">
+                <span>Seeding Command</span>
+                <button class="copy-btn" onclick="copyCode(this, 'cd server\node seed.js')">Copy</button>
+              </div>
+              <pre class="code-block">cd server
+node seed.js</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="timeline-item">
+          <div class="timeline-node">5</div>
+          <div class="timeline-content">
+            <h3 class="lang-title" style="color: var(--warning);">5. Dashboard Login & Sandbox / இணையப் பயன்பாடு</h3>
+            <div class="bilingual-grid">
+              <div class="lang-column en">
+                <span class="lang-label">English Explanation</span>
+                <p>Open <code>http://localhost:5173</code> in your browser. Enter the administrator analyst details to access the dashboard workspace. Navigate to the Sandbox to perform real-time AI churn predictions.</p>
+              </div>
+              <div class="lang-column ta">
+                <span class="lang-label">தமிழ் விளக்கம்</span>
+                <p>பிரவுசரில் <code>http://localhost:5173</code> பக்கத்தைத் திறந்து, சேமிக்கப்பட்ட மின்னஞ்சல் மற்றும் கடவுச்சொல்லைக் கொடுத்து உள்நுழையவும். பின்னர் வாடிக்கையாளர் வெளியேற்றக் கணிப்புகளைச் சோதிக்கலாம்.</p>
+              </div>
+            </div>
+            <div style="background: var(--bg-tertiary); padding: 16px; border-radius: 8px; border: 1px solid var(--border); font-size: 13.5px; border-left: 4px solid var(--warning);">
+              <strong>Admin Email / மின்னஞ்சல்:</strong> <code>analyst@churnpredict.ai</code><br>
+              <strong>Password / கடவுச்சொல்:</strong> <code>password123</code>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: ARCHITECTURE PIPELINE -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">⚙️</span>
+        <h2 class="section-title">Full-Stack Data Flow Blueprint / கட்டமைப்புத் தரவுப் பரிமாற்றம்</h2>
+      </div>
+
+      <div class="bilingual-grid">
+        <div class="lang-column en">
+          <span class="lang-label">English Explanation</span>
+          <p>The system operates in a linear workflow. The React client captures metrics, Node.js Express acts as a middleware router to authenticate, and the Python microservice acts as the prediction calculator.</p>
+        </div>
+        <div class="lang-column ta">
+          <span class="lang-label">தமிழ் விளக்கம்</span>
+          <p>இணையத்தளத்தில் பயனர் கணிக்கக் கொடுக்கும் விவரங்கள் Node.js பின்னணி சர்வருக்கு அனுப்பப்பட்டு, பின்னர் Python ML API சர்வர் மூலம் கணிக்கப்பட்டு முடிவுகள் திரும்பப் பெறப்படும்.</p>
+        </div>
+      </div>
+
+      <div class="media-container">
+        <img class="demo-media" src="file:///C:/Users/DURGAI/.gemini/antigravity-ide/brain/d50b294a-a1d7-43f9-b87c-da0b8eac966f/churn_prediction_demo_1782901277746.webp" alt="Application Usage Flow Video">
+      </div>
+    </section>
+
+    <!-- SECTION 3: DIRECTORY MAP -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">📂</span>
+        <h2 class="section-title">Directory Tree & Files Map / கோப்புகள் மற்றும் கோப்புறைகள் விளக்கம்</h2>
+      </div>
+
+      <div class="tree-wrapper">
+        <div><span class="tree-folder">telecom-churn-prediction/</span> <span class="tree-comment"># Workspace root directory</span></div>
+        <div>├── <span class="tree-folder">client/</span> <span class="tree-comment"># Frontend client (React Vite SPA)</span></div>
+        <div>│   ├── <span class="tree-folder">src/</span></div>
+        <div>│   │   ├── <span class="tree-folder">components/</span> <span class="tree-comment"># Global Sidebar, Navbar, and customized Loader</span></div>
+        <div>│   │   └── <span class="tree-folder">pages/</span> <span class="tree-comment"># Views (Home page, analytical dashboards, sandbox forms, profile panel)</span></div>
+        <div>│   └── <span class="tree-file">package.json</span> <span class="tree-comment"># React modules package manifest</span></div>
+        <div>│</div>
+        <div>├── <span class="tree-folder">server/</span> <span class="tree-comment"># Backend express server API gateway</span></div>
+        <div>│   ├── <span class="tree-folder">config/</span> <span class="tree-comment"># Database and local fallback logic files</span></div>
+        <div>│   ├── <span class="tree-folder">controllers/</span> <span class="tree-comment"># Business logic controllers (customers, analytics statistics, logins)</span></div>
+        <div>│   ├── <span class="tree-folder">models/</span> <span class="tree-comment"># MongoDB collection schemas</span></div>
+        <div>│   └── <span class="tree-file">seed.js</span> <span class="tree-comment"># Automatic database seeder utility</span></div>
+        <div>│</div>
+        <div>└── <span class="tree-folder">ml-service/</span> <span class="tree-comment"># Python AI predicting engine</span></div>
+        <div>    ├── <span class="tree-folder">saved_model/</span> <span class="tree-comment"># Model artifact binaries (.pkl)</span></div>
+        <div>    ├── <span class="tree-file">train.py</span> <span class="tree-comment"># Scikit-Learn Classifier training pipeline</span></div>
+        <div>    └── <span class="tree-file">app.py</span> <span class="tree-comment"># FastAPI REST controller</span></div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DATABASE SCHEMAS -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">🗄️</span>
+        <h2 class="section-title">Database Models Layout / தரவுத்தள அமைப்பு</h2>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Collection Name</th>
+              <th>Fields</th>
+              <th>Data Types</th>
+              <th>Business Purpose / விளக்கம்</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: bold; color: var(--primary);">users</td>
+              <td>username, email, password, role</td>
+              <td>String, String, String, String</td>
+              <td>Access authorization for system analysts. Passwords are Bcrypt hashed.<br>*(பயனர் உள்நுழைவுத் தரவுகள்.)*</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--secondary);">customers</td>
+              <td>customerId, gender, tenure, contract, monthlyCharges, churn, churnProbability, churnRiskLevel, riskFactors</td>
+              <td>String, String, Number, String, Number, String, Number, String, Array</td>
+              <td>Stores demographics, services usage, and computed AI churn predictions.<br>*(வாடிக்கையாளர்கள் மற்றும் கணிப்புத் தரவுகள்.)*</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; color: var(--accent);">predictions</td>
+              <td>customerId, inputs, churnPrediction, probability, riskLevel, performedBy</td>
+              <td>String, Object, String, Number, String, String</td>
+              <td>Log files keeping history of single customer AI Sandbox runs.<br>*(கணிப்புகளின் வரலாற்றுப் பதிவுகள்.)*</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 5: API ENDPOINTS -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">🌐</span>
+        <h2 class="section-title">API Endpoint Catalog / API நுழைவாயில்கள்</h2>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Route URL</th>
+              <th>Auth Level</th>
+              <th>Request Parameters / Response Body</th>
+              <th>Usage Description / விளக்கம்</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge-post">POST</span></td>
+              <td style="font-family: monospace;">/api/auth/register</td>
+              <td>Public</td>
+              <td><span class="code-span">{ username, email, password }</span></td>
+              <td>Registers a new analyst account.<br>*(புதிய கணக்கை உருவாக்குகிறது.)*</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-post">POST</span></td>
+              <td style="font-family: monospace;">/api/auth/login</td>
+              <td>Public</td>
+              <td><span class="code-span">{ email, password }</span></td>
+              <td>Authenticates email and returns a JWT token.<br>*(பயனரைச் சரிபார்த்து டோக்கன் வழங்குகிறது.)*</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-get">GET</span></td>
+              <td style="font-family: monospace;">/api/customers</td>
+              <td>JWT Token</td>
+              <td>Query: <span class="code-span">page, limit, search, riskLevel</span></td>
+              <td>Returns a paginated list of customers.<br>*(வாடிக்கையாளர்களின் பட்டியலை வழங்குகிறது.)*</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-post">POST</span></td>
+              <td style="font-family: monospace;">/api/predictions/predict</td>
+              <td>JWT Token</td>
+              <td>JSON body with customer metrics</td>
+              <td>Evaluates churn risk probability.<br>*(வெளியேற்ற சதவீதத்தைக் கணக்கிடுகிறது.)*</td>
+            </tr>
+            <tr>
+              <td><span class="badge badge-post">POST</span></td>
+              <td style="font-family: monospace;">/api/customers/upload-csv</td>
+              <td>JWT Token</td>
+              <td>Multer multipart form CSV file</td>
+              <td>Saves and predicts CSV customer lists.<br>*(CSV கோப்பை ஏற்றி மொத்தமாகக் கணிக்கும்.)*</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 6: POWER BI BI WORKFLOW -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">📊</span>
+        <h2 class="section-title">Power BI Integration & DAX / பவர் பிஐ பகுப்பாய்வு</h2>
+      </div>
+
+      <div class="bilingual-grid">
+        <div class="lang-column en">
+          <span class="lang-label">English Explanation</span>
+          <p>Load the generated <code>dataset/telecom_customer_churn.csv</code> file into Microsoft Power BI Desktop. Create these three DAX measures in your model to compute business metrics:</p>
+        </div>
+        <div class="lang-column ta">
+          <span class="lang-label">தமிழ் விளக்கம்</span>
+          <p>உருவாக்கப்பட்ட <code>dataset/telecom_customer_churn.csv</code> கோப்பை Power BI Desktop மென்பொருளில் ஏற்றி, கீழே உள்ள DAX கணிப்பீட்டுச் சூத்திரங்களை அமைக்கவும்:</p>
+        </div>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header">
+          <span>DAX Measure: Churn Rate (%)</span>
+          <button class="copy-btn" onclick="copyCode(this, 'ChurnRate = DIVIDE(CALCULATE(COUNT(telecom_customer_churn[customerId]), telecom_customer_churn[churn] = &quot;Yes&quot;), COUNT(telecom_customer_churn[customerId]), 0) * 100')">Copy</button>
+        </div>
+        <pre class="code-block">ChurnRate = DIVIDE(
+    CALCULATE(COUNT(telecom_customer_churn[customerId]), telecom_customer_churn[churn] = "Yes"), 
+    COUNT(telecom_customer_churn[customerId]), 
+    0
+) * 100</pre>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header">
+          <span>DAX Measure: Monthly Recurring Revenue (MRR)</span>
+          <button class="copy-btn" onclick="copyCode(this, 'MRR = SUM(telecom_customer_churn[monthlyCharges])')">Copy</button>
+        </div>
+        <pre class="code-block">MRR = SUM(telecom_customer_churn[monthlyCharges])</pre>
+      </div>
+
+      <div class="code-container">
+        <div class="code-header">
+          <span>DAX Measure: Revenue Lost (Monthly)</span>
+          <button class="copy-btn" onclick="copyCode(this, 'Monthly Revenue Lost = CALCULATE(SUM(telecom_customer_churn[monthlyCharges]), telecom_customer_churn[churn] = &quot;Yes&quot;)')">Copy</button>
+        </div>
+        <pre class="code-block">Monthly Revenue Lost = CALCULATE(
+    SUM(telecom_customer_churn[monthlyCharges]), 
+    telecom_customer_churn[churn] = "Yes"
+)</pre>
+      </div>
+    </section>
+
+    <!-- SECTION 7: FAILOVER REDUNDANCY -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">⚡</span>
+        <h2 class="section-title">High Availability Failover / அவசரகாலத் தற்காப்பு</h2>
+      </div>
+
+      <div class="bilingual-grid">
+        <div class="lang-column en">
+          <span class="lang-label">English Explanation</span>
+          <h3 class="lang-title">Fault-Tolerant Operations</h3>
+          <p>
+            • **Database Outage**: If MongoDB cloud goes offline, the server diverts operations to the local JSON file <code>server/uploads/local_db.json</code>.
+            <br>• **ML Outage**: If the Python service goes offline, the server routes prediction queries to a JavaScript heuristic scoring engine.
+          </p>
+        </div>
+        <div class="lang-column ta">
+          <span class="lang-label">தமிழ் விளக்கம்</span>
+          <h3 class="lang-title">தடையில்லாச் செயல்பாடு</h3>
+          <p>
+            • **தரவுத்தள செயலிழப்பு**: MongoDB முடங்கினால், தளம் தானாகவே உள்ளூர் <code>local_db.json</code> கோப்பைத் தொடர்பு கொண்டு தரவுகளைச் சேமிக்கும்.
+            <br>• **AI சர்வர் செயலிழப்பு**: Python ML சர்வர் முடங்கினால், Node.js-க்குள் உள்ள மாற்று ஜாவாஸ்கிரிப்ட் விதிமுறை கணிப்பான் (Heuristic Engine) இயங்கி தொடர்ந்து கணிப்புகளைத் தரும்.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: RESOLVED LINTS & BUGS -->
+    <section class="section-card">
+      <div class="section-header">
+        <span class="section-icon">🐛</span>
+        <h2 class="section-title">Resolved Codebase Bugs / திருத்தப்பட்ட பிழைகள்</h2>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Bug Description / பிழையின் விவரம்</th>
+              <th>Resolution / தீர்வு</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: bold;">Dashboard UI</td>
+              <td>Missing icon <code>RefreshCw</code> from lucide-react crashed the Dashboard.</td>
+              <td>Imported icon correctly in headers. React compiling successfully now.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Database Setup</td>
+              <td>Server crashes on startup if MongoDB connection fails.</td>
+              <td>Added automatic fallback config redirecting to local database file.</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">Prediction Panel</td>
+              <td>Form loading indicator freezes if FastAPI microservice goes offline.</td>
+              <td>Added API route timeout rules to divert to local JS rule engine.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Theme Toggling logic
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeBtn');
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        btn.innerHTML = '🌙 Dark Mode';
+      } else {
+        btn.innerHTML = '☀️ Light Mode';
+      }
+    }
+
+    // Interactive Clipboard copy helper
+    function copyCode(btnElement, textToCopy) {
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const originalText = btnElement.innerHTML;
+        btnElement.innerHTML = 'Copied! ✓';
+        btnElement.style.borderColor = '#10b981';
+        btnElement.style.color = '#10b981';
+        
+        setTimeout(() => {
+          btnElement.innerHTML = originalText;
+          btnElement.style.borderColor = '';
+          btnElement.style.color = '';
+        }, 1500);
+      });
+    }
+  </script>
+</body>
+</html>
