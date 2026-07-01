@@ -15,6 +15,14 @@
       "email": "test@churnpredict.ai",
       "password": "$2a$10$McP13wgUmSMwXWgdWO.rc.RkSh0onh1BN4puGBppvstBL7LYm2jJe",
       "role": "user"
+    },
+    {
+      "_id": "uek4vwc01",
+      "createdAt": "2026-07-01T15:49:12.859Z",
+      "username": "fefw",
+      "email": "ddff@gmail.com",
+      "password": "$2a$10$OrEnrjaHRvW5Z2tQPGLq7uCweFVPlD7fXkYRExbbbfNVjZIfpap8K",
+      "role": "user"
     }
   ],
   "customers": [
