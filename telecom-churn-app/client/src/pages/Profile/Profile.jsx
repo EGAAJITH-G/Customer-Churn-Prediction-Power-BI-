@@ -752,7 +752,7 @@ curl -X GET "${baseUrl}/customers?page=1&limit=5" \\
             <div className={styles.statusList}>
               <div className={styles.statusItem}>
                 <span className={styles.statusLabel}>Node Server Endpoint</span>
-                <span className={styles.statusValOk}>http://localhost:5000</span>
+                <span className={styles.statusValOk}>{API_URL ? API_URL.replace('/api', '') : 'http://localhost:5000'}</span>
               </div>
 
               <div className={styles.statusItem}>
