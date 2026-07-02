@@ -230,34 +230,32 @@ exports.forgotPassword = async (req, res) => {
       await user.save();
     }
 
-    // Send email using nodemailer if configured
+    // Send email using nodemailer if configured (run asynchronously to prevent HTTP lag)
     let emailSent = false;
     if (process.env.SMTP_HOST && process.env.SMTP_MAIL && process.env.SMTP_PASSWORD) {
-      try {
-        await sendEmail({
-          email: normalizedEmail,
-          subject: 'ChurnPredict AI - Password Reset Code',
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
-              <div style="text-align: center; margin-bottom: 24px;">
-                <h2 style="color: #2563eb; margin: 0; font-size: 24px;">Password Reset Request</h2>
-                <p style="color: #64748b; font-size: 14px; margin-top: 6px;">ChurnPredict AI Telecom Portal</p>
-              </div>
-              <p style="font-size: 15px; color: #334155; line-height: 1.5;">Hello,</p>
-              <p style="font-size: 15px; color: #334155; line-height: 1.5;">We received a request to reset the password for your account. Please use the 6-digit verification code below to set a new password:</p>
-              <div style="text-align: center; margin: 32px 0;">
-                <span style="display: inline-block; font-size: 36px; font-weight: bold; letter-spacing: 6px; color: #2563eb; background-color: #f8fafc; padding: 16px 32px; border-radius: 12px; border: 1.5px dashed #cbd5e1;">${code}</span>
-              </div>
-              <p style="font-size: 13.5px; color: #64748b; line-height: 1.5;">This code will expire in <strong>10 minutes</strong>. If you did not request a password reset, please ignore this message securely.</p>
-              <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
-              <p style="text-align: center; color: #94a3b8; font-size: 11px; margin: 0;">&copy; 2026 ChurnPredict AI. All rights reserved.</p>
+      emailSent = true;
+      sendEmail({
+        email: normalizedEmail,
+        subject: 'ChurnPredict AI - Password Reset Code',
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);">
+            <div style="text-align: center; margin-bottom: 24px;">
+              <h2 style="color: #2563eb; margin: 0; font-size: 24px;">Password Reset Request</h2>
+              <p style="color: #64748b; font-size: 14px; margin-top: 6px;">ChurnPredict AI Telecom Portal</p>
             </div>
-          `
-        });
-        emailSent = true;
-      } catch (mailErr) {
-        console.error('Nodemailer failed to send email:', mailErr.message);
-      }
+            <p style="font-size: 15px; color: #334155; line-height: 1.5;">Hello,</p>
+            <p style="font-size: 15px; color: #334155; line-height: 1.5;">We received a request to reset the password for your account. Please use the 6-digit verification code below to set a new password:</p>
+            <div style="text-align: center; margin: 32px 0;">
+              <span style="display: inline-block; font-size: 36px; font-weight: bold; letter-spacing: 6px; color: #2563eb; background-color: #f8fafc; padding: 16px 32px; border-radius: 12px; border: 1.5px dashed #cbd5e1;">${code}</span>
+            </div>
+            <p style="font-size: 13.5px; color: #64748b; line-height: 1.5;">This code will expire in <strong>10 minutes</strong>. If you did not request a password reset, please ignore this message securely.</p>
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
+            <p style="text-align: center; color: #94a3b8; font-size: 11px; margin: 0;">&copy; 2026 ChurnPredict AI. All rights reserved.</p>
+          </div>
+        `
+      }).catch(mailErr => {
+        console.error('Nodemailer background dispatch failed:', mailErr.message);
+      });
     }
 
     // Output to server console for testing/development
