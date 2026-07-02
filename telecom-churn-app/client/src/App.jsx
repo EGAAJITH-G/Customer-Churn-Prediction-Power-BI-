@@ -18,6 +18,7 @@ import Analytics from './pages/Analytics/Analytics';
 import Reports from './pages/Reports/Reports';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Profile from './pages/Profile/Profile';
 import PowerBI from './pages/PowerBI/PowerBI';
 import NotFound from './pages/NotFound/NotFound';
@@ -95,6 +96,14 @@ function App() {
             element={
               <PublicRoute>
                 <Register />
+              </PublicRoute>
+            } 
+          />
+          <Route 
+            path="/forgot-password" 
+            element={
+              <PublicRoute>
+                <ForgotPassword />
               </PublicRoute>
             } 
           />

@@ -20,6 +20,12 @@ const UserSchema = new mongoose.Schema({
     enum: ['admin', 'user'],
     default: 'user'
   },
+  resetCode: {
+    type: String
+  },
+  resetCodeExpires: {
+    type: Date
+  },
   createdAt: {
     type: Date,
     default: Date.now

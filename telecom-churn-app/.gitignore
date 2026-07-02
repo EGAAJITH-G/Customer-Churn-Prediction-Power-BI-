@@ -1,3 +1,9 @@
+# Dependency directories
+node_modules/
+/dist
+/dist-ssr
+/client/dist
+
 # Logs
 logs
 *.log
@@ -7,19 +13,45 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Environment files (Saves sensitive keys, DB passwords, SMTP details)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+server/.env
+client/.env
 
-# Editor directories and files
+# Editor / System files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+Thumbs.db
+desktop.ini
+
+# Python / Machine Learning caches & virtual envs
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Machine Learning saved models (Typically too large for Git)
+*.pkl
+telecom-churn-app/ml-service/saved_model/
+
+# Local databases and uploads (Contains dynamic state and customer imports)
+server/uploads/local_db.json
+
+# Reports
 *.ChurnPredict_AI_Analysis_Report.html

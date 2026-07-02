@@ -80,6 +80,10 @@ const Login = () => {
             </div>
           </div>
 
+          <div className={styles.forgotPasswordWrapper}>
+            <Link to="/forgot-password" className={styles.forgotLink}>Forgot Password?</Link>
+          </div>
+
           <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: '8px' }}>
             {loading ? 'Authenticating...' : 'Sign In'}
           </button>

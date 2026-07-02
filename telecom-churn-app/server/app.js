@@ -13,8 +13,7 @@ const reportRoutes = require('./routes/reportRoutes');
 
 const app = express();
 
-// Connect Database
-connectDB();
+// Connect Database (Awaited in server.js)
 
 // Middleware
 app.use(cors());
