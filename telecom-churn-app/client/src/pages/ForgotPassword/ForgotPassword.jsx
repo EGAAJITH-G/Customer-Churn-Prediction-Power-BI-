@@ -175,6 +175,27 @@ const ForgotPassword = () => {
               <button type="submit" disabled={loading} className="btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: '8px' }}>
                 {loading ? 'Resetting Password...' : 'Reset Password'}
               </button>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '16px', alignItems: 'center' }}>
+                <button
+                  type="button"
+                  onClick={() => { setStep(1); setError(''); setSuccess(''); }}
+                  style={{ background: 'none', border: 'none', color: 'var(--text-light)', cursor: 'pointer', fontSize: '13px', fontWeight: '500', transition: 'color 0.2s' }}
+                  onMouseEnter={(e) => e.target.style.color = 'var(--primary)'}
+                  onMouseLeave={(e) => e.target.style.color = 'var(--text-light)'}
+                >
+                  Go Back
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSendCode}
+                  style={{ background: 'none', border: 'none', color: 'var(--primary)', cursor: 'pointer', fontSize: '13px', fontWeight: '600' }}
+                  onMouseEnter={(e) => e.target.style.textDecoration = 'underline'}
+                  onMouseLeave={(e) => e.target.style.textDecoration = 'none'}
+                >
+                  Resend Code
+                </button>
+              </div>
             </form>
           </>
         )}
