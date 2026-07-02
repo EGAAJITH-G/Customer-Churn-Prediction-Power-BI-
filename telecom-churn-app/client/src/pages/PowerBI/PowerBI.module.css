@@ -1,11 +1,12 @@
 .container {
-  padding: 24px 40px 40px 320px; /* leaves room for Sidebar (280px) + gap */
-  min-height: 100vh;
+  padding: 16px 40px 16px 320px; /* leaves room for Sidebar (280px) + gap */
+  height: calc(100vh - 120px); /* fits the height of the viewport */
   display: flex;
   flex-direction: column;
   gap: 16px;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Power BI Ribbon Header */
@@ -85,7 +86,9 @@
   background: #F3F2F1; /* Power BI Canvas Light Gray */
   border-left: 1px solid var(--border);
   border-right: 1px solid var(--border);
-  min-height: 520px;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Slicer Sidebar */
@@ -98,6 +101,8 @@
   flex-direction: column;
   gap: 20px;
   flex-shrink: 0;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .sidebarHeader {
@@ -230,6 +235,7 @@
   flex-direction: column;
   gap: 20px;
   overflow-y: auto;
+  height: 100%;
 }
 
 /* KPI Card Row */
