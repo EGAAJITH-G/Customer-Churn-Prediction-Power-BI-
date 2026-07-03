@@ -215,4 +215,5 @@ Distributed under the ISC License. See `LICENSE` for more information.
 ---
 
 ## 👥 Authors & Contributors
-*   **Ajith** - Developer & Analytics Engineer ([GitHub Profile](https://github.com/EGAAJITH-G))
+*   **Ega Ajith** - Developer & Analytics Engineer ([GitHub Profile](https://github.com/EGAAJITH-G))
+*   **Dharshika** - Developer & Analytics Engineer ([GitHub Profile](https://github.com/dharshika29))
